@@ -25,9 +25,32 @@ class Houseware < Item
 	end
 end
 
+class Fruits < Item
+
+	def price(days)
+		mon = 1
+		tue = 2
+		wed = 3 
+		thu = 4
+		fri = 5
+		sat = 6
+		sun = 7
+		if days == 6..7
+			puts @base_price +=  (@base_price * 10)/100
+		else
+			puts @base_price
+		end
+	end
+end
 
 screw = Houseware.new("screw", 120)
 puts screw.price
 
 hammer = Houseware.new("hammer", 80)
 puts hammer.price
+
+apple = Fruits.new("apple",10)
+puts apple.price(6)
+
+pear = Fruits.new("pear", 25)
+puts pear.price(2)
