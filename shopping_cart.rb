@@ -21,48 +21,38 @@ end
 class Houseware < Item
 	def price
 		if @base_price >= 100
-			puts @base_price +=  (@base_price * 5)/100
+			@base_price -=  (@base_price * 5)/100
 		else
-			puts @base_price
+			 @base_price
 		end
 	end
 end
 
 class Fruits < Item
 	def price(days)
-		mon = 1
-		tue = 2
-		wed = 3 
-		thu = 4
-		fri = 5
-		sat = 6
-		sun = 7
-		if days == (6..7)
-			puts @base_price +=  (@base_price * 10)/100
+		# days == true are week end days.
+		if days == true
+			@base_price -=  (@base_price * 10)/100
 		else
-			puts @base_price
+			@base_price
 		end
 	end
 end
 
 
-milk = Item.new("milk", 10)
-puts milk.price
 
-#trying out different hardware with or without discount
-screw = Houseware.new("screw", 120)
-puts screw.price
 
-hammer = Houseware.new("hammer", 80)
-puts hammer.price
-
-#trying different fruits according to the day
-apple = Fruits.new("apple",10)
-puts apple.price(6)
-
-pear = Fruits.new("pear", 25)
-puts pear.price(2)
-
+#iteration one
+banana = Fruits.new("banana", 10)
+puts "the price of bananas on Saturday is #{banana.price(false)} euros and #{banana.price(true)} euros at the week-end"
+orange_juice = Item.new("Orange Juice", 10)
+puts "the price of orange juice is :#{orange_juice.price} euros"
+rice = Item.new("rice", 1)
+puts "the price of rice is : #{rice.price} euro"
+vacuum_cleaner = Houseware.new("vacuum cleaner", 150)
+puts "this is the price for a vacuum cleaner: #{vacuum_cleaner.price} euros"
+anchovies = Item.new("anchovies", 2)
+puts "this is the price for anchovies : #{anchovies.price} euros"
 
 
 
