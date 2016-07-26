@@ -4,7 +4,8 @@ class ShoppingCart
 	end
 end
 
-
+'''When I put the argument "day" within the class Fruit, the shopping cart total amount to pay showed error. I had to move it somewhere else but I am still not happy with it
+I wish I could move it to the Fruit class and initialize it there. Which I tried...and didnt work'''
 class Item
 	attr_reader :name, :base_price, :day
 	def initialize(name, base_price, day = false)
@@ -16,8 +17,6 @@ class Item
 		price = @base_price
 	end
 end
-
-
 
 class Houseware < Item
 	def price
@@ -60,8 +59,6 @@ class ShoppingCart
 end
 
 
-
-
 #iteration one
 banana = Fruit.new("banana", 10, true)
 puts "This is the price for banana at the week end : #{banana.price}"
@@ -76,6 +73,7 @@ puts "this is the price for a vacuum cleaner: #{vacuum_cleaner.price} euros"
 anchovies = Item.new("anchovies", 2)
 puts "this is the price for anchovies : #{anchovies.price} euros"
 
+#iteration three
 momma_list = ShoppingCart.new
 momma_list.add_item(banana)
 momma_list.add_item(orange_juice)
