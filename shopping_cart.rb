@@ -6,8 +6,8 @@ end
 
 
 class Item
-	attr_reader :name, :base_price, :day
-	def initialize(name, base_price, day = false)
+	attr_reader :name, :base_price
+	def initialize(name, base_price)
 		@name = name
 		@base_price = base_price
 		@day = day 
@@ -30,6 +30,13 @@ class Houseware < Item
 end
 
 class Fruit < Item
+	attr_reader :day
+	def initialize (name, base_price, day)
+		super(name)
+		super(base_price)
+		@day = day
+	end
+
 	def price
 		# days == true are week end days.
 		if @day == true
@@ -65,7 +72,7 @@ end
 #iteration one
 banana = Fruit.new("banana", 10, true)
 puts "This is the price for banana at the week end : #{banana.price}"
-apple = Fruit.new("apple", 11, false)
+apple = Fruit.new("apple", 11)
 puts "this is the price of apple on week days: #{apple.price}"
 orange_juice = Item.new("Orange Juice", 10)
 puts "the price of orange juice is :#{orange_juice.price} euros"
