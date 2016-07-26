@@ -17,7 +17,7 @@ class Item
 	end
 end
 
-
+#this shouldnt be on my master
 
 class Houseware < Item
 	def price
