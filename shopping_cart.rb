@@ -1,13 +1,7 @@
-class ShoppingCart
-	def inititalize
-		@items = []
-	end
-end
-
 
 class Item
-	attr_reader :name, :base_price
-	def initialize(name, base_price)
+	attr_reader :name, :base_price, :day
+	def initialize(name, base_price, day = false)
 		@name = name
 		@base_price = base_price
 		@day = day 
@@ -22,21 +16,14 @@ end
 class Houseware < Item
 	def price
 		if @base_price >= 100
-			@base_price -=  (@base_price * 5)/100
+			price = @base_price -(@base_price * 5)/100
 		else
-			 @base_price
+			 price = @base_price
 		end
 	end
 end
 
 class Fruit < Item
-	attr_reader :day
-	def initialize (name, base_price, day)
-		super(name)
-		super(base_price)
-		@day = day
-	end
-
 	def price
 		# days == true are week end days.
 		if @day == true
@@ -70,7 +57,7 @@ end
 
 
 #iteration one
-banana = Fruit.new("banana", 10, true)
+banana = Fruit.new("banana", 10)
 puts "This is the price for banana at the week end : #{banana.price}"
 apple = Fruit.new("apple", 11)
 puts "this is the price of apple on week days: #{apple.price}"
@@ -85,8 +72,11 @@ puts "this is the price for anchovies : #{anchovies.price} euros"
 
 momma_list = ShoppingCart.new
 momma_list.add_item(banana)
+momma_list.add_item(apple)
 momma_list.add_item(orange_juice)
+momma_list.add_item(rice)
 momma_list.add_item(vacuum_cleaner)
+momma_list.add_item(anchovies)
 print "This is the total price of your cart: #{momma_list.total_price} euros"
 
 
