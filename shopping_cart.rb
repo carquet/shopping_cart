@@ -76,8 +76,16 @@ momma_list.add_item(apple)
 momma_list.add_item(orange_juice)
 momma_list.add_item(rice)
 momma_list.add_item(vacuum_cleaner)
-momma_list.add_item(anchovies)
-print "This is the total price of your cart: #{momma_list.total_price} euros"
+puts "This is the total price of your cart: #{momma_list.total_price} euros"
+
+pop_list = ShoppingCart.new
+pop_list.add_item(banana)
+pop_list.add_item(apple)
+pop_list.add_item(orange_juice)
+pop_list.add_item(rice)
+pop_list.add_item(vacuum_cleaner)
+pop_list.add_item(anchovies)
+puts "This is the total price of your cart: #{pop_list.total_price} euros"
 
 
 
