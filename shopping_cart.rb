@@ -47,10 +47,17 @@ class ShoppingCart
 	def total_price
 		total_amount_to_pay = 0
 		@item.each do |item|
-			total_amount_to_pay += item.price
+			total_amount_to_pay += item.price 
 		end
-		total_amount_to_pay
-	end
+		 total_amount_to_pay
+		 if @item.length > 5
+		 	total_amount_to_pay -= (total_amount_to_pay*10)/100
+		 else
+		 	total_amount_to_pay
+		 end
+
+	end 
+
 end
 
 
@@ -76,7 +83,8 @@ momma_list.add_item(apple)
 momma_list.add_item(orange_juice)
 momma_list.add_item(rice)
 momma_list.add_item(vacuum_cleaner)
-puts "This is the total price of your cart: #{momma_list.total_price} euros"
+#more than 5 items total price = 9 + 11 + 10 + 1 + 143  = 174
+puts "Mam', you have 5 items: this is the total price of your cart: #{momma_list.total_price} euros"
 
 pop_list = ShoppingCart.new
 pop_list.add_item(banana)
@@ -85,7 +93,8 @@ pop_list.add_item(orange_juice)
 pop_list.add_item(rice)
 pop_list.add_item(vacuum_cleaner)
 pop_list.add_item(anchovies)
-puts "This is the total price of your cart: #{pop_list.total_price} euros"
+#more than 6 items total price = 9 + 11 + 10 + 1 + 143 + 2 = 176 - 10% = 158,4
+puts "Sir, you have more than 5 items: this is the total price of your cart: #{pop_list.total_price} euros"
 
 
 
